@@ -289,67 +289,6 @@
         </div>
     </section>
 
-    <!-- 技術文章分享專欄 -->
-    <section id="article-section" class="py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold tracking-tight text-slate-900 mb-4 relative inline-block">
-                技術文章分享
-                <div class="h-1 w-12 bg-emerald-500 mx-auto mt-2 rounded"></div>
-            </h2>
-            <p class="text-slate-600">不定期更新後端架構設計、演進心得與技術實戰踩坑筆記。</p>
-        </div>
-
-        <!-- 動態載入文章卡片的容器 -->
-        <div id="article-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- JS 會自動將 posts.json 裡的內容轉為卡片插入這裡 -->
-            <div class="col-span-full text-center text-slate-400 py-8">
-                <i class="fa-solid fa-spinner fa-spin mr-2"></i> 正在載入文章列表...
-            </div>
-        </div>
-    </section>
-    <!-- 渲染文章列表的 JavaScript -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch('posts.json')
-                .then(response => response.json())
-                .then(posts => {
-                    const gridContainer = document.getElementById('article-grid');
-                    gridContainer.innerHTML = ''; // 清除 Loading 提示
-
-                    posts.forEach(post => {
-                        const card = document.createElement('div');
-                        card.className = "bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between hover:shadow-md hover:border-emerald-500/50 transition-all";
-
-                        card.innerHTML = `
-                            <div>
-                                <div class="flex justify-between items-center mb-3">
-                                    <span class="text-xs px-2.5 py-1 bg-emerald-50 text-emerald-700 font-semibold rounded code-font">${post.category}</span>
-                                    <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>${post.date}</span>
-                                </div>
-                                <h3 class="text-lg font-bold text-slate-900 mb-2 hover:text-emerald-600 transition-colors">
-                                    <a href="${post.url}">${post.title}</a>
-                                </h3>
-                                <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                                    ${post.summary}
-                                </p>
-                            </div>
-                            <a href="${post.url}" class="inline-flex items-center gap-2 text-sm text-emerald-600 font-medium group pt-4 border-t border-slate-100">
-                                閱讀全文 <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-                            </a>
-                        `;
-                        gridContainer.appendChild(card);
-                    });
-                })
-                .catch(error => {
-                    console.error('無法載入文章列表:', error);
-                    document.getElementById('article-grid').innerHTML = `
-                        <div class="col-span-full text-center text-slate-400 py-8">
-                            目前尚無文章或載入發生錯誤。
-                        </div>
-                    `;
-                });
-        });
-    </script>
 
     <!-- Tech Blogs Section -->
     <section id="blog" class="py-20 bg-slate-950 text-slate-100 px-4 sm:px-6 lg:px-8">
