@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Spring Boot 3 與 GitLab 整合與踩坑紀錄",
+        "summary": "記錄在企業環境下透過 Docker 部署 GitLab，並串接 Spring Cloud Config Server 的實戰心得。",
+        "date": "2026-06-06",
+        "category": "Java / Spring",
+        "url": "posts/spring-gitlab-config.html"
+    },
+    {
+        "title": "Python Asyncio 非同步網路請求實戰",
+        "summary": "如何將傳統的 threading 轉換為高效的 asyncio 與 aiohttp 併發架構。",
+        "date": "2026-05-20",
+        "category": "Python",
+        "url": "posts/python-asyncio.html"
+    }
+]

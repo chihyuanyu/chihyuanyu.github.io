@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Asyncio 非同步網路請求實戰 - 資深開發、系統分析師</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/95 text-white backdrop-blur border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 font-bold text-xl tracking-wider text-emerald-400 code-font">
+                    &lt;Architecture & Code /&gt;
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6 text-sm font-medium">
+                        <a href="../index.html" class="text-slate-300 hover:text-emerald-400 transition-colors">回首頁</a>
+                        <a href="../index.html#about"
+                            class="text-slate-300 hover:text-emerald-400 transition-colors">自我介紹</a>
+                        <a href="../index.html#skills"
+                            class="text-slate-300 hover:text-emerald-400 transition-colors">核心技術</a>
+                        <a href="../index.html#blog"
+                            class="text-slate-300 hover:text-emerald-400 transition-colors">技術專欄</a>
+                        <a href="../index.html#experience"
+                            class="text-slate-300 hover:text-emerald-400 transition-colors">工作經歷</a>
+                        <a href="../index.html#projects"
+                            class="text-slate-300 hover:text-emerald-400 transition-colors">重點專案</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-400 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-1">
+            <a href="../index.html"
+                class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-emerald-400">回首頁</a>
+            <a href="../index.html#about"
+                class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-emerald-400">自我介紹</a>
+            <a href="../index.html#skills"
+                class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-emerald-400">核心技術</a>
+            <a href="../index.html#blog"
+                class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-emerald-400">技術專欄</a>
+            <a href="../index.html#experience"
+                class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-emerald-400">工作經歷</a>
+            <a href="../index.html#projects"
+                class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-emerald-400">重點專案</a>
+        </div>
+    </nav>
+
+    <!-- Post Content -->
+    <main class="py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <!-- Breadcrumb -->
+        <div class="mb-8 text-sm text-slate-500">
+            <a href="../index.html" class="hover:text-emerald-600"><i class="fa-solid fa-home mr-1"></i> 首頁</a> /
+            <a href="../index.html#blog" class="hover:text-emerald-600">技術專欄</a> /
+            <span class="text-slate-700 font-medium">Python Asyncio 非同步網路請求實戰</span>
+        </div>
+
+        <article class="bg-white rounded-xl shadow-lg p-8 md:p-12 border border-slate-200">
+            <!-- Header -->
+            <header class="mb-12">
+                <span
+                    class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">Python</span>
+                <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Python Asyncio 非同步網路請求實戰</h1>
+                <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-alt"></i>
+                        <span>2026-05-20</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>閱讀時間：約 8 分鐘</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="prose prose-lg max-w-none prose-slate code-font text-slate-700">
+
+                <p class="text-lg leading-relaxed mb-8 text-slate-700 font-medium">
+                    在現代 Web 應用中，處理大量 I/O 密集型任務（如 API 請求、資料庫查詢）時，傳統的同步多執行緒模型常因上下文切換（Context Switching）的 overhead
+                    而面臨效能瓶頸。本文將深入探討 Python 的 <span class="text-blue-600 font-semibold">asyncio</span> 框架，並結合 <span
+                        class="text-blue-600 font-semibold">aiohttp</span> 實戰，解析如何構建高併發的非同步網路請求架構。
+                </p>
+
+                <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b-2 border-blue-200 pb-3">1. 同步 vs. 非同步：效能的關鍵差異
+                </h2>
+                <p class="  

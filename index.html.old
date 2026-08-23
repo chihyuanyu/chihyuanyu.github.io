@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Danny Portfolio</title>
+
+    <meta name="description" content="Enterprise Solution Architect Portfolio">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            font-family:
+                Inter,
+                Segoe UI,
+                Roboto,
+                sans-serif;
+
+            overflow-x: hidden;
+        }
+
+        /* ===================================
+           HERO SECTION
+        =================================== */
+
+        #hero {
+
+            position: relative;
+
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(-45deg,
+                    #0f172a,
+                    #1e293b,
+                    #0284c7,
+                    #2563eb);
+
+            background-size: 400% 400%;
+
+            animation:
+                gradientMove 15s ease infinite;
+        }
+
+        .hero-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                radial-gradient(circle,
+                    rgba(255, 255, 255, 0.1),
+                    transparent 70%);
+        }
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 10;
+
+            max-width: 1000px;
+
+            padding: 20px;
+        }
+
+        .hero-tag {
+
+            color: #38bdf8;
+
+            font-size: 14px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .hero-content h1 {
+
+            color: white;
+
+            font-size: 72px;
+
+            margin-bottom: 15px;
+
+            font-weight: 800;
+        }
+
+        .hero-content h2 {
+
+            color: #f1f5f9;
+
+            font-size: 34px;
+
+            min-height: 50px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+
+            color: #cbd5e1;
+
+            font-size: 20px;
+
+            line-height: 1.8;
+
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+
+            text-decoration: none;
+
+            padding: 15px 32px;
+
+            background: #38bdf8;
+
+            color: white;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, .3);
+        }
+
+        .btn-secondary {
+
+            text-decoration: none;
+
+            padding: 15px 32px;
+
+            border: 2px solid white;
+
+            color: white;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .btn-secondary:hover {
+
+            background: white;
+
+            color: #0f172a;
+        }
+
+        .scroll-indicator {
+
+            position: absolute;
+
+            bottom: 30px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: white;
+
+            font-size: 32px;
+
+            animation: bounce 2s infinite;
+        }
+
+        /* ===================================
+           CURSOR EFFECT
+        =================================== */
+
+        .cursor {
+
+            display: inline-block;
+
+            width: 3px;
+
+            height: 35px;
+
+            background: #38bdf8;
+
+            margin-left: 5px;
+
+            animation: blink .8s infinite;
+        }
+
+        /* ===================================
+           ANIMATION
+        =================================== */
+
+        @keyframes gradientMove {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform:
+                    translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform:
+                    translateX(-50%) translateY(-12px);
+            }
+
+            60% {
+                transform:
+                    translateX(-50%) translateY(-6px);
+            }
+        }
+
+        @keyframes blink {
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* ===================================
+           RESPONSIVE
+        =================================== */
+
+        @media(max-width:768px) {
+
+            .hero-content h1 {
+
+                font-size: 42px;
+            }
+
+            .hero-content h2 {
+
+                font-size: 24px;
+            }
+
+            .hero-description {
+
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+
+                flex-direction: column;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <section id="hero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <p class="hero-tag">
+                Enterprise Solution Architect
+            </p>
+
+            <h1>
+                Danny Portfolio
+            </h1>
+
+            <h2>
+                <span id="typing"></span>
+                <span class="cursor"></span>
+            </h2>
+
+            <p class="hero-description">
+
+                Designing scalable enterprise systems,
+                cloud-native platforms,
+                microservices architectures,
+                and digital transformation solutions.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#" class="btn-primary">
+                    View Projects
+                </a>
+
+                <a href="#" class="btn-secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="scroll-indicator">
+            ↓
+        </div>
+
+    </section>
+
+    <script>
+
+        const roles = [
+
+            "Cloud Architect",
+
+            "Enterprise Architect",
+
+            "Solution Architect",
+
+            "Microservices Specialist",
+
+            "Spring Boot Expert",
+
+            "Kubernetes Engineer",
+
+            "Digital Transformation Leader"
+
+        ];
+
+        let roleIndex = 0;
+        let charIndex = 0;
+
+        let deleting = false;
+
+        const typingElement =
+            document.getElementById("typing");
+
+        function typingEffect() {
+
+            const currentText =
+                roles[roleIndex];
+
+            if (!deleting) {
+
+                typingElement.textContent =
+                    currentText.substring(
+                        0,
+                        charIndex++
+                    );
+
+                if (charIndex >
+                    currentText.length) {
+
+                    deleting = true;
+
+                    setTimeout(
+                        typingEffect,
+                        1500
+                    );
+
+                    return;
+                }
+
+            } else {
+
+                typingElement.textContent =
+                    currentText.substring(
+                        0,
+                        charIndex--
+                    );
+
+                if (charIndex < 0) {
+
+                    deleting = false;
+
+                    roleIndex++;
+
+                    if (roleIndex >= roles.length) {
+
+                        roleIndex = 0;
+                    }
+                }
+            }
+
+            setTimeout(
+                typingEffect,
+                deleting ? 50 : 100
+            );
+        }
+
+        typingEffect();
+
+    </script>
+
+</body>
+
+</html>
